@@ -1,0 +1,15 @@
+<button><a href="/">Home</a></button> &nbsp
+<button><a href="/addform/">Create a Post</a></button> &nbsp
+<button><a href="/roasts/">Roasts</a></button> &nbsp
+<button><a href="/boasts/">Boasts</a></button> &nbsp
+<button><a href="/sortby/">Sort by Vote</a></button> &nbsp
+<hr>
+{% for post in posts %}
+<h2>{{ post.is_boast }}</h2>
+<p>{{ post.text }}</p>
+<button><a href="/likes/{{post.id}}/">Upvote</a></button>
+<button><a href="/dislikes/{{post.id}}/">Downvote</a></button>
+<h3>votes: {{ post.vote_score }}</h3>
+<div>{{ post.created_at }}</div>
+<hr>
+{% endfor %}
